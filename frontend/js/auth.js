@@ -56,11 +56,13 @@ document.addEventListener('DOMContentLoaded', function() {
         const loginUrl = `${window.API_BASE_URL || '/api'}/users/login`;
         console.log('Login URL:', loginUrl);
         
+        console.log('Sending login request to:', loginUrl);
         fetch(loginUrl, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'Accept': 'application/json'
+                'Accept': 'application/json',
+                'Origin': window.location.origin
             },
             body: JSON.stringify({ username, password }),
             mode: 'cors',
@@ -129,11 +131,13 @@ document.addEventListener('DOMContentLoaded', function() {
         const registerUrl = `${window.API_BASE_URL || '/api'}/users/register`;
         console.log('Register URL:', registerUrl);
         
+        console.log('Sending registration request to:', registerUrl);
         fetch(registerUrl, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'Accept': 'application/json'
+                'Accept': 'application/json',
+                'Origin': window.location.origin
             },
             body: JSON.stringify({
                 username,
