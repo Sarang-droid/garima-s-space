@@ -53,7 +53,8 @@ document.addEventListener('DOMContentLoaded', function() {
         submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Logging in...';
         
         // Send login request
-        fetch('/api/users/login', {
+        const loginUrl = 'http://localhost:5000/api/users/login';
+        fetch(loginUrl, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -120,7 +121,8 @@ document.addEventListener('DOMContentLoaded', function() {
         submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Registering...';
         
         // Send register request
-        fetch('/api/users/register', {
+        const apiUrl = 'http://localhost:5000/api/users/register';
+        fetch(apiUrl, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
