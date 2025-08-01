@@ -53,12 +53,18 @@ document.addEventListener('DOMContentLoaded', function() {
         submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Logging in...';
         
         // Send login request
-        fetch(`${window.API_BASE_URL || '/api'}/users/login`, {
+        const loginUrl = `${window.API_BASE_URL || '/api'}/users/login`;
+        console.log('Login URL:', loginUrl);
+        
+        fetch(loginUrl, {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
             },
-            body: JSON.stringify({ username, password })
+            body: JSON.stringify({ username, password }),
+            mode: 'cors',
+            credentials: 'include'
         })
         .then(response => {
             if (!response.ok) {
@@ -120,17 +126,23 @@ document.addEventListener('DOMContentLoaded', function() {
         submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Registering...';
         
         // Send register request
-        fetch(`${window.API_BASE_URL || '/api'}/users/register`, {
+        const registerUrl = `${window.API_BASE_URL || '/api'}/users/register`;
+        console.log('Register URL:', registerUrl);
+        
+        fetch(registerUrl, {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
             },
             body: JSON.stringify({
                 username,
                 email,
                 password,
                 displayName: displayName || username
-            })
+            }),
+            mode: 'cors',
+            credentials: 'include'
         })
         .then(response => {
             if (!response.ok) {
