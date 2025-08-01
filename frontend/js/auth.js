@@ -127,8 +127,8 @@ document.addEventListener('DOMContentLoaded', function() {
         submitBtn.disabled = true;
         submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Registering...';
         
-        // Send register request through proxy to avoid CORS issues
-        const registerUrl = `${window.API_BASE_URL || '/api'}/proxy/register`;
+        // Send register request through the Vercel API route
+        const registerUrl = '/api/register';
         console.log('Register URL:', registerUrl);
         
         console.log('Sending registration request through proxy to:', registerUrl);
