@@ -122,16 +122,13 @@
     </div>
 
     <!-- JavaScript -->
-    <script>
-        // Set the base API URL based on the current environment
-        const isProduction = window.location.hostname.includes('vercel.app');
-        window.API_BASE_URL = isProduction 
-            ? 'https://garima-s-space-backend.vercel.app/api' 
-            : 'http://localhost:5000/api';
-        
-        console.log('Environment:', isProduction ? 'Production' : 'Development');
-        console.log('API Base URL set to:', window.API_BASE_URL);
-    </script>
+    <script type="module" src="js/config.js"></script>
     <script src="js/auth.js"></script>
+    <script>
+        // Log the API Base URL for debugging
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log('API Base URL:', window.API_BASE_URL);
+        });
+    </script>
 </body>
 </html>

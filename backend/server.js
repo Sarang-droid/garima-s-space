@@ -15,21 +15,11 @@ const profileRoutes = require('./routes/profileRoutes');
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-// Configure CORS with specific allowed origins
-const allowedOrigins = [
-  'https://garima-s-space-pkle.vercel.app',
-  'https://garima-s-space-pkle-55szqrwy1-sarangs-projects-8b8ce6ab.vercel.app',
-  'http://localhost:3000' // For local development
-];
-
-// Enable CORS for specific origins
+// Enable CORS for all origins (temporary for testing)
 app.use((req, res, next) => {
-  const origin = req.headers.origin;
-  if (allowedOrigins.includes(origin)) {
-    res.header('Access-Control-Allow-Origin', origin);
-  }
+  res.header('Access-Control-Allow-Origin', '*');
   res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
-  res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
   res.header('Access-Control-Allow-Credentials', 'true');
   
   // Handle preflight requests

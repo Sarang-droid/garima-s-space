@@ -128,7 +128,7 @@ document.addEventListener('DOMContentLoaded', function() {
         submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Registering...';
         
         // Send register request
-        const registerUrl = `${window.API_BASE_URL || '/api'}/users/register`;
+        const registerUrl = `${window.API_BASE_URL || 'https://garima-s-space-backend.vercel.app/api'}/users/register`;
         console.log('Register URL:', registerUrl);
         
         console.log('Sending registration request to:', registerUrl);
@@ -136,8 +136,7 @@ document.addEventListener('DOMContentLoaded', function() {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'Accept': 'application/json',
-                'Origin': window.location.origin
+                'Accept': 'application/json'
             },
             body: JSON.stringify({
                 username,
@@ -145,8 +144,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 password,
                 displayName: displayName || username
             }),
-            mode: 'cors',
-            credentials: 'include'
+            mode: 'cors'
         })
         .then(response => {
             if (!response.ok) {
