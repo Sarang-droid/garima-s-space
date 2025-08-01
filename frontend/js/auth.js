@@ -127,11 +127,11 @@ document.addEventListener('DOMContentLoaded', function() {
         submitBtn.disabled = true;
         submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Registering...';
         
-        // Send register request through the Vercel API route
-        const registerUrl = '/api/register';
+        // Send register request to the new API endpoint
+        const registerUrl = 'https://garima-s-space.vercel.app/api/register';
         console.log('Register URL:', registerUrl);
         
-        console.log('Sending registration request through proxy to:', registerUrl);
+        console.log('Sending registration request to:', registerUrl);
         fetch(registerUrl, {
             method: 'POST',
             headers: {
