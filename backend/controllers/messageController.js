@@ -1,4 +1,4 @@
-const Message = require('../models/Message');
+const Message = require('../models/message');
 
 // GET /messages
 exports.getAllMessages = async (req, res) => {

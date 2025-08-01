@@ -124,9 +124,11 @@
     <!-- JavaScript -->
     <script>
         // Set the base API URL based on the current environment
-        window.API_BASE_URL = window.location.hostname === 'garima-s-space.vercel.app' 
+        window.API_BASE_URL = window.location.hostname.includes('vercel.app')
             ? 'https://garima-s-space-backend.vercel.app' 
             : 'http://localhost:5000';
+        
+        console.log('API Base URL set to:', window.API_BASE_URL);
     </script>
     <script src="js/auth.js"></script>
 </body>
