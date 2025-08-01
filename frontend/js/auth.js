@@ -127,11 +127,11 @@ document.addEventListener('DOMContentLoaded', function() {
         submitBtn.disabled = true;
         submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Registering...';
         
-        // Send register request
-        const registerUrl = `${window.API_BASE_URL || 'https://garima-s-space-backend.vercel.app/api'}/users/register`;
+        // Send register request through proxy to avoid CORS issues
+        const registerUrl = `${window.API_BASE_URL || '/api'}/proxy/register`;
         console.log('Register URL:', registerUrl);
         
-        console.log('Sending registration request to:', registerUrl);
+        console.log('Sending registration request through proxy to:', registerUrl);
         fetch(registerUrl, {
             method: 'POST',
             headers: {
@@ -143,8 +143,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 email,
                 password,
                 displayName: displayName || username
-            }),
-            mode: 'cors'
+            })
         })
         .then(response => {
             if (!response.ok) {
