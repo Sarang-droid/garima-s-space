@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Garima's Space - Your personal profile and insights">
+    <title>Profile | Garima's Space</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/favicon.ico">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    
+    <!-- Theme Color for Mobile Browsers -->
+    <meta name="theme-color" content="#6C63FF">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="logo">
+                <i class="fas fa-moon-stars"></i>
+                <h1>Garima's Space</h1>
+            </div>
+            <div class="welcome-message">
+                <p>Welcome to your profile, <span id="user-name">Garima</span> <span class="pulse">💖</span></p>
+            </div>
+        </header>
+
+        <div class="profile-section">
+            <div class="profile-header">
+                <div class="profile-avatar">
+                    <img id="profile-image" src="https://via.placeholder.com/150" alt="Profile picture">
+                    <button id="change-avatar-btn" class="btn-small"><i class="fas fa-camera"></i></button>
+                </div>
+                <div class="profile-info">
+                    <h2 id="profile-display-name">Garima</h2>
+                    <p id="profile-username">@garima</p>
+                    <p id="profile-joined-date">Joined: January 2023</p>
+                    <button id="edit-profile-btn" class="btn-primary"><i class="fas fa-edit"></i> Edit Profile</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="stats-section">
+            <h2><i class="fas fa-chart-line"></i> Your Stats</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number" id="journal-count">0</div>
+                    <div class="stat-label">Journal Entries</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="streak-count">0</div>
+                    <div class="stat-label">Day Streak</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="mood-count">0</div>
+                    <div class="stat-label">Mood Entries</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="insights-section">
+            <h2><i class="fas fa-lightbulb"></i> Your Insights</h2>
+            
+            <div class="insight-card">
+                <h3>Mood Distribution</h3>
+                <div class="mood-chart" id="mood-chart">
+                    <!-- Mood chart will be rendered here -->
+                    <div class="loading-placeholder">Loading mood data...</div>
+                </div>
+            </div>
+            
+            <div class="insight-card">
+                <h3>Most Used Tags</h3>
+                <div class="tag-cloud" id="tag-cloud">
+                    <!-- Tag cloud will be rendered here -->
+                    <div class="loading-placeholder">Loading tag data...</div>
+                </div>
+            </div>
+            
+            <div class="insight-card">
+                <h3>Recent Activity</h3>
+                <div class="activity-timeline" id="activity-timeline">
+                    <!-- Activity timeline will be rendered here -->
+                    <div class="loading-placeholder">Loading activity data...</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="recent-journals-section">
+            <h2><i class="fas fa-book"></i> Recent Journal Entries</h2>
+            <div class="journal-list" id="recent-journals">
+                <!-- Recent journals will be rendered here -->
+                <div class="loading-placeholder">Loading recent journals...</div>
+            </div>
+        </div>
+
+        <!-- Edit Profile Modal -->
+        <div class="modal" id="edit-profile-modal">
+            <div class="modal-content">
+                <span class="close-modal">&times;</span>
+                <h2>Edit Profile</h2>
+                <form id="edit-profile-form">
+                    <div class="form-group">
+                        <label for="display-name">Display Name</label>
+                        <input type="text" id="display-name" name="displayName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="avatar-url">Avatar URL</label>
+                        <input type="text" id="avatar-url" name="avatarUrl">
+                    </div>
+                    <button type="submit" class="btn-primary">Save Changes</button>
+                </form>
+            </div>
+        </div>
+
+        <nav class="main-nav" aria-label="Main navigation">
+            <a href="index.html" class="nav-btn">
+                <i class="fas fa-home"></i>
+                <span>Dashboard</span>
+            </a>
+            <a href="journal.html" class="nav-btn">
+                <i class="fas fa-book"></i>
+                <span>Journal</span>
+            </a>
+            <a href="insight.html" class="nav-btn">
+                <i class="fas fa-chart-pie"></i>
+                <span>Insight</span>
+            </a>
+            <a href="message.html" class="nav-btn">
+                <i class="fas fa-envelope"></i>
+                <span>Message</span>
+            </a>
+            <button id="logout-btn" class="nav-btn logout-btn">
+                <i class="fas fa-sign-out-alt"></i>
+                <span>Logout</span>
+            </button>
+        </nav>
+        
+        <footer class="footer">
+            <p>Made with <i class="fas fa-heart"></i> for Garima</p>
+        </footer>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/profile.js"></script>
+</body>
+</html>

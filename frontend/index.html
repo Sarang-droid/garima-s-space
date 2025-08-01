@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Garima's Space - Your personal wellness and mood tracking companion">
+    <title>Dashboard | Garima's Space</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/favicon.ico">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    
+    <!-- Theme Color for Mobile Browsers -->
+    <meta name="theme-color" content="#6C63FF">
+    
+    <!-- iOS Meta Tags -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Garima's Space">
+    
+    <!-- Windows Meta Tags -->
+    <meta name="msapplication-TileColor" content="#6C63FF">
+    <meta name="msapplication-TileImage" content="assets/ms-icon-144x144.png">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="logo">
+                <i class="fas fa-moon-stars"></i>
+                <h1>Garima's Space</h1>
+            </div>
+            <div class="welcome-message">
+                <p>Hi <span id="user-name">Garima</span>, you're safe here today. <span class="pulse">💖</span></p>
+            </div>
+            <div class="user-menu">
+                <button id="user-menu-btn" class="user-menu-btn">
+                    <img id="user-avatar" src="https://via.placeholder.com/40" alt="User avatar" class="user-avatar">
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div id="user-dropdown" class="user-dropdown">
+                    <a href="profile.html" class="dropdown-item">
+                        <i class="fas fa-user"></i> Profile
+                    </a>
+                    <button id="logout-btn" class="dropdown-item">
+                        <i class="fas fa-sign-out-alt"></i> Logout
+                    </button>
+                </div>
+            </div>
+        </header>
+        
+        <nav class="dashboard-nav">
+            <a href="index.html" class="nav-item active">
+                <i class="fas fa-home"></i>
+                <span>Dashboard</span>
+            </a>
+            <a href="journal.html" class="nav-item">
+                <i class="fas fa-book"></i>
+                <span>Journal</span>
+            </a>
+            <a href="insight.html" class="nav-item">
+                <i class="fas fa-chart-pie"></i>
+                <span>Insights</span>
+            </a>
+            <a href="message.html" class="nav-item">
+                <i class="fas fa-envelope"></i>
+                <span>Messages</span>
+            </a>
+            <a href="profile.html" class="nav-item">
+                <i class="fas fa-user"></i>
+                <span>Profile</span>
+            </a>
+        </nav>
+
+        <div class="card quote-container">
+            <div class="quote-content">
+                <p id="daily-quote">Loading today's inspiration...</p>
+                <p id="quote-author" class="quote-author"></p>
+            </div>
+            <button id="refresh-quote" class="icon-btn" aria-label="Get new quote">
+                <i class="fas fa-sync-alt"></i>
+            </button>
+        </div>
+
+        <div class="card mood-tracker">
+            <h2><i class="fas fa-smile-beam"></i> How are you feeling today?</h2>
+            <p class="subtitle">Tap an emoji to log your mood</p>
+            
+            <div class="emoji-bar" id="mood-emoji-bar" role="group" aria-label="Mood selection">
+                <button class="emoji-btn" data-mood="happy" aria-label="Happy">
+                    <span class="emoji" role="img" aria-hidden="true">😄</span>
+                    <span class="emoji-label">Happy</span>
+                </button>
+                <button class="emoji-btn" data-mood="sad" aria-label="Sad">
+                    <span class="emoji" role="img" aria-hidden="true">😔</span>
+                    <span class="emoji-label">Sad</span>
+                </button>
+                <button class="emoji-btn" data-mood="neutral" aria-label="Neutral">
+                    <span class="emoji" role="img" aria-hidden="true">😐</span>
+                    <span class="emoji-label">Neutral</span>
+                </button>
+                <button class="emoji-btn" data-mood="angry" aria-label="Angry">
+                    <span class="emoji" role="img" aria-hidden="true">😤</span>
+                    <span class="emoji-label">Angry</span>
+                </button>
+                <button class="emoji-btn" data-mood="tired" aria-label="Tired">
+                    <span class="emoji" role="img" aria-hidden="true">😴</span>
+                    <span class="emoji-label">Tired</span>
+                </button>
+                <button class="emoji-btn" data-mood="anxious" aria-label="Anxious">
+                    <span class="emoji" role="img" aria-hidden="true">🥺</span>
+                    <span class="emoji-label">Anxious</span>
+                </button>
+            </div>
+            
+            <div class="mood-response" id="mood-response">
+                <!-- Dynamic content will be inserted here by JavaScript -->
+            </div>
+        </div>
+
+        <div class="card hug-counter">
+            <div class="counter-content">
+                <div class="counter-number" id="hug-count">0</div>
+                <p class="counter-text">days of self-care in a row! <span class="pulse">💖</span></p>
+                <button id="increment-hug" class="hug-btn" aria-label="Increment counter">
+                    <i class="fas fa-heart"></i> Give yourself a hug
+                </button>
+            </div>
+        </div>
+
+        <div class="dashboard-widgets">
+            <div class="widget-card">
+                <div class="widget-header">
+                    <h3><i class="fas fa-book"></i> Recent Journal Entries</h3>
+                    <a href="journal.html" class="widget-link">View all</a>
+                </div>
+                <div class="widget-content" id="recent-journals">
+                    <div class="loading-placeholder">Loading recent journals...</div>
+                </div>
+            </div>
+            
+            <div class="widget-card">
+                <div class="widget-header">
+                    <h3><i class="fas fa-chart-line"></i> Mood Trends</h3>
+                    <a href="insight.html" class="widget-link">View insights</a>
+                </div>
+                <div class="widget-content" id="mood-trends">
+                    <div class="loading-placeholder">Loading mood trends...</div>
+                </div>
+            </div>
+            
+            <div class="widget-card">
+                <div class="widget-header">
+                    <h3><i class="fas fa-envelope"></i> Latest Message</h3>
+                    <a href="message.html" class="widget-link">View all</a>
+                </div>
+                <div class="widget-content" id="latest-message">
+                    <div class="loading-placeholder">Loading latest message...</div>
+                </div>
+            </div>
+        </div>
+        
+        <footer class="footer">
+            <p>Made with <i class="fas fa-heart"></i> for Garima</p>
+        </footer>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="js/quotes.js"></script>
+    <script src="js/quoteWidget.js"></script>
+    <script src="js/moodTracker.js"></script>
+    <script src="js/hugCounter.js"></script>
+    <script src="js/index.js"></script>
+    
+    <script>
+        // Check if user is logged in
+        document.addEventListener('DOMContentLoaded', () => {
+            const token = localStorage.getItem('token');
+            if (!token) {
+                // Redirect to login page if not logged in
+                window.location.href = 'login.html';
+                return;
+            }
+            
+            // Update user info from localStorage
+            const user = JSON.parse(localStorage.getItem('user'));
+            if (user) {
+                const userNameElement = document.getElementById('user-name');
+                const userAvatarElement = document.getElementById('user-avatar');
+                
+                if (userNameElement) {
+                    userNameElement.textContent = user.profile?.displayName || user.username;
+                }
+                
+                if (userAvatarElement && user.profile?.avatarUrl) {
+                    userAvatarElement.src = user.profile.avatarUrl;
+                }
+            }
+            
+            // User menu dropdown toggle
+            const userMenuBtn = document.getElementById('user-menu-btn');
+            const userDropdown = document.getElementById('user-dropdown');
+            
+            if (userMenuBtn && userDropdown) {
+                userMenuBtn.addEventListener('click', () => {
+                    userDropdown.classList.toggle('active');
+                });
+                
+                // Close dropdown when clicking outside
+                document.addEventListener('click', (event) => {
+                    if (!userMenuBtn.contains(event.target) && !userDropdown.contains(event.target)) {
+                        userDropdown.classList.remove('active');
+                    }
+                });
+            }
+            
+            // Logout functionality
+            const logoutBtn = document.getElementById('logout-btn');
+            if (logoutBtn) {
+                logoutBtn.addEventListener('click', () => {
+                    localStorage.removeItem('token');
+                    localStorage.removeItem('user');
+                    window.location.href = 'login.html';
+                });
+            }
+            
+            // Add a class to body when page is loaded
+            document.body.classList.add('loaded');
+            
+            // Add animation class to elements with data-animate attribute
+            const animatedElements = document.querySelectorAll('[data-animate]');
+            animatedElements.forEach((el, index) => {
+                setTimeout(() => {
+                    el.classList.add('animate-in');
+                }, 100 * index);
+            });
+            
+            // Fetch dashboard data
+            fetchDashboardData();
+        });
+        
+        // Service Worker Registration for PWA functionality
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js')
+                    .then(registration => {
+                        console.log('ServiceWorker registration successful');
+                    })
+                    .catch(err => {
+                        console.log('ServiceWorker registration failed: ', err);
+                    });
+            });
+        }
+        
+        // Fetch dashboard data
+        function fetchDashboardData() {
+            const token = localStorage.getItem('token');
+            if (!token) return;
+            
+            // Fetch recent journals
+            fetch('/api/journal?limit=3', {
+                headers: {
+                    'Authorization': `Bearer ${token}`
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                renderRecentJournals(data);
+            })
+            .catch(error => {
+                console.error('Error fetching recent journals:', error);
+                document.getElementById('recent-journals').innerHTML = 
+                    '<p class="error-message">Failed to load recent journals.</p>';
+            });
+            
+            // Fetch mood trends
+            fetch('/api/mood/trends', {
+                headers: {
+                    'Authorization': `Bearer ${token}`
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                renderMoodTrends(data);
+            })
+            .catch(error => {
+                console.error('Error fetching mood trends:', error);
+                document.getElementById('mood-trends').innerHTML = 
+                    '<p class="error-message">Failed to load mood trends.</p>';
+            });
+            
+            // Fetch latest message
+            fetch('/api/messages?limit=1', {
+                headers: {
+                    'Authorization': `Bearer ${token}`
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                renderLatestMessage(data);
+            })
+            .catch(error => {
+                console.error('Error fetching latest message:', error);
+                document.getElementById('latest-message').innerHTML = 
+                    '<p class="error-message">Failed to load latest message.</p>';
+            });
+        }
+        
+        // Render recent journals
+        function renderRecentJournals(journals) {
+            const container = document.getElementById('recent-journals');
+            if (!container) return;
+            
+            if (!journals || journals.length === 0) {
+                container.innerHTML = '<p class="no-data">No journal entries yet.</p>';
+                return;
+            }
+            
+            let html = '';
+            journals.forEach(journal => {
+                const date = new Date(journal.createdAt);
+                const formattedDate = date.toLocaleDateString('en-US', { 
+                    month: 'short', 
+                    day: 'numeric' 
+                });
+                
+                html += `
+                    <div class="journal-item-small">
+                        <div class="journal-item-header">
+                            <h4>${journal.title}</h4>
+                            <span class="journal-date">${formattedDate}</span>
+                        </div>
+                        <p class="journal-preview">${journal.content.substring(0, 60)}${journal.content.length > 60 ? '...' : ''}</p>
+                        <a href="journal.html?id=${journal._id}" class="btn-link">Read more</a>
+                    </div>
+                `;
+            });
+            
+            container.innerHTML = html;
+        }
+        
+        // Render mood trends
+        function renderMoodTrends(data) {
+            const container = document.getElementById('mood-trends');
+            if (!container) return;
+            
+            if (!data || !data.length) {
+                container.innerHTML = '<p class="no-data">No mood data available yet.</p>';
+                return;
+            }
+            
+            // Group moods by type
+            const moodCounts = {};
+            data.forEach(entry => {
+                if (!moodCounts[entry.mood]) {
+                    moodCounts[entry.mood] = 0;
+                }
+                moodCounts[entry.mood]++;
+            });
+            
+            // Create mood bars
+            let html = '<div class="mood-bars">';
+            
+            for (const mood in moodCounts) {
+                const count = moodCounts[mood];
+                const percentage = (count / data.length) * 100;
+                
+                let moodEmoji = '😐';
+                switch (mood) {
+                    case 'happy': moodEmoji = '😄'; break;
+                    case 'sad': moodEmoji = '😔'; break;
+                    case 'angry': moodEmoji = '😤'; break;
+                    case 'tired': moodEmoji = '😴'; break;
+                    case 'anxious': moodEmoji = '🥺'; break;
+                }
+                
+                html += `
+                    <div class="mood-bar-item">
+                        <div class="mood-bar-label">
+                            <span class="mood-emoji">${moodEmoji}</span>
+                            <span class="mood-name">${mood}</span>
+                        </div>
+                        <div class="mood-bar-container">
+                            <div class="mood-bar" style="width: ${percentage}%"></div>
+                        </div>
+                        <div class="mood-bar-count">${count}</div>
+                    </div>
+                `;
+            }
+            
+            html += '</div>';
+            container.innerHTML = html;
+        }
+        
+        // Render latest message
+        function renderLatestMessage(messages) {
+            const container = document.getElementById('latest-message');
+            if (!container) return;
+            
+            if (!messages || messages.length === 0) {
+                container.innerHTML = '<p class="no-data">No messages yet.</p>';
+                return;
+            }
+            
+            const message = messages[0];
+            const date = new Date(message.createdAt);
+            const formattedDate = date.toLocaleDateString('en-US', { 
+                month: 'short', 
+                day: 'numeric',
+                year: 'numeric'
+            });
+            
+            let html = `
+                <div class="message-preview">
+                    <div class="message-header">
+                        <div class="message-sender">
+                            <i class="fas fa-user-circle"></i>
+                            <span>From Sarang</span>
+                        </div>
+                        <span class="message-date">${formattedDate}</span>
+                    </div>
+                    <h4 class="message-subject">${message.subject}</h4>
+                    <p class="message-content">${message.content.substring(0, 100)}${message.content.length > 100 ? '...' : ''}</p>
+                    <a href="message.html?id=${message._id}" class="btn-link">Read full message</a>
+                </div>
+            `;
+            
+            container.innerHTML = html;
+        }
+    </script>
+</body>
+</html>

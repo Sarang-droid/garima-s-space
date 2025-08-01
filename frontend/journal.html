@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Journal - Garima's Space</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&family=Dancing+Script:wght@400;500;600;700&display=swap">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="journal-bg">
+    <div class="container">
+        <header class="header">
+            <h1>Journal</h1>
+            <p class="soft-note">Your thoughts are safe here.</p>
+        </header>
+        <main>
+            <div class="tag-selection" id="tag-selection">
+                <h2>Pick a topic:</h2>
+                
+                <div class="tag-category">
+                    <h3>💖 Relationships</h3>
+                    <div class="tag-list">
+                        <button class="tag-btn" data-tag="Family">Family</button>
+                        <button class="tag-btn" data-tag="Parents">Parents</button>
+                        <button class="tag-btn" data-tag="Boyfriend">Boyfriend</button>
+                        <button class="tag-btn" data-tag="Friendship">Friendship</button>
+                        <button class="tag-btn" data-tag="Loneliness">Loneliness</button>
+                        <button class="tag-btn" data-tag="Trust">Trust</button>
+                        <button class="tag-btn" data-tag="Arguments">Arguments</button>
+                        <button class="tag-btn" data-tag="Boundaries">Boundaries</button>
+                        <button class="tag-btn" data-tag="Love">Love</button>
+                        <button class="tag-btn" data-tag="Heartbreak">Heartbreak</button>
+                    </div>
+                </div>
+                
+                <div class="tag-category">
+                    <h3>🧠 Mental & Emotional States</h3>
+                    <div class="tag-list">
+                        <button class="tag-btn" data-tag="Anxiety">Anxiety</button>
+                        <button class="tag-btn" data-tag="Overthinking">Overthinking</button>
+                        <button class="tag-btn" data-tag="Depression">Depression</button>
+                        <button class="tag-btn" data-tag="Self-doubt">Self-doubt</button>
+                        <button class="tag-btn" data-tag="Fear">Fear</button>
+                        <button class="tag-btn" data-tag="Confidence">Confidence</button>
+                        <button class="tag-btn" data-tag="Growth">Growth</button>
+                        <button class="tag-btn" data-tag="Self-love">Self-love</button>
+                        <button class="tag-btn" data-tag="Motivation">Motivation</button>
+                        <button class="tag-btn" data-tag="Burnout">Burnout</button>
+                        <button class="tag-btn" data-tag="Insecurity">Insecurity</button>
+                        <button class="tag-btn" data-tag="Anger">Anger</button>
+                        <button class="tag-btn" data-tag="Gratitude">Gratitude</button>
+                        <button class="tag-btn" data-tag="Peace">Peace</button>
+                        <button class="tag-btn" data-tag="Jealousy">Jealousy</button>
+                    </div>
+                </div>
+                
+                <div class="tag-category">
+                    <h3>🌿 Personal Life & Healing</h3>
+                    <div class="tag-list">
+                        <button class="tag-btn" data-tag="Childhood">Childhood</button>
+                        <button class="tag-btn" data-tag="Inner child">Inner child</button>
+                        <button class="tag-btn" data-tag="Healing">Healing</button>
+                        <button class="tag-btn" data-tag="Forgiveness">Forgiveness</button>
+                        <button class="tag-btn" data-tag="Guilt">Guilt</button>
+                        <button class="tag-btn" data-tag="Trauma">Trauma</button>
+                        <button class="tag-btn" data-tag="Hope">Hope</button>
+                        <button class="tag-btn" data-tag="Acceptance">Acceptance</button>
+                        <button class="tag-btn" data-tag="Dreams">Dreams</button>
+                        <button class="tag-btn" data-tag="Vulnerability">Vulnerability</button>
+                        <button class="tag-btn" data-tag="Change">Change</button>
+                    </div>
+                </div>
+                
+                <div class="tag-category">
+                    <h3>📚 Career & Academic Stress</h3>
+                    <div class="tag-list">
+                        <button class="tag-btn" data-tag="Studies">Studies</button>
+                        <button class="tag-btn" data-tag="Exams">Exams</button>
+                        <button class="tag-btn" data-tag="Career pressure">Career pressure</button>
+                        <button class="tag-btn" data-tag="Confusion">Confusion</button>
+                        <button class="tag-btn" data-tag="Time management">Time management</button>
+                        <button class="tag-btn" data-tag="Disappointment">Disappointment</button>
+                        <button class="tag-btn" data-tag="Success">Success</button>
+                        <button class="tag-btn" data-tag="Focus">Focus</button>
+                        <button class="tag-btn" data-tag="Productivity">Productivity</button>
+                    </div>
+                </div>
+                
+                <div class="tag-category">
+                    <h3>🌌 Existential or Reflective Thoughts</h3>
+                    <div class="tag-list">
+                        <button class="tag-btn" data-tag="Purpose">Purpose</button>
+                        <button class="tag-btn" data-tag="Future">Future</button>
+                        <button class="tag-btn" data-tag="Regret">Regret</button>
+                        <button class="tag-btn" data-tag="Freedom">Freedom</button>
+                        <button class="tag-btn" data-tag="Choices">Choices</button>
+                        <button class="tag-btn" data-tag="Faith">Faith</button>
+                        <button class="tag-btn" data-tag="Universe">Universe</button>
+                        <button class="tag-btn" data-tag="God">God</button>
+                        <button class="tag-btn" data-tag="Intuition">Intuition</button>
+                        <button class="tag-btn" data-tag="Detachment">Detachment</button>
+                    </div>
+                </div>
+                
+                <div class="tag-category">
+                    <h3>🎨 Creative & Outlet Tags</h3>
+                    <div class="tag-list">
+                        <button class="tag-btn" data-tag="Poetry">Poetry</button>
+                        <button class="tag-btn" data-tag="Art">Art</button>
+                        <button class="tag-btn" data-tag="Music">Music</button>
+                        <button class="tag-btn" data-tag="Dance">Dance</button>
+                        <button class="tag-btn" data-tag="Journaling">Journaling</button>
+                        <button class="tag-btn" data-tag="Photography">Photography</button>
+                    </div>
+                </div>
+                
+                <div class="tag-category">
+                    <h3>🧘 Well-being Activities</h3>
+                    <div class="tag-list">
+                        <button class="tag-btn" data-tag="Meditation">Meditation</button>
+                        <button class="tag-btn" data-tag="Therapy">Therapy</button>
+                        <button class="tag-btn" data-tag="Sleep">Sleep</button>
+                        <button class="tag-btn" data-tag="Exercise">Exercise</button>
+                        <button class="tag-btn" data-tag="Nature">Nature</button>
+                        <button class="tag-btn" data-tag="Books">Books</button>
+                        <button class="tag-btn" data-tag="Prayers">Prayers</button>
+                        <button class="tag-btn" data-tag="Routine">Routine</button>
+                    </div>
+                </div>
+                
+                <div class="tag-category">
+                    <h3>Other</h3>
+                    <div class="tag-list">
+                        <button class="tag-btn" data-tag="Other">Other Topic</button>
+                    </div>
+                </div>
+            </div>
+            <div class="journal-entry-area" id="journal-entry-area" style="display: none;">
+                <h3 id="selected-tag"></h3>
+                <textarea id="journal-text" rows="8" placeholder="Express yourself..." maxlength="2000"></textarea>
+                <button id="save-entry-btn" class="nav-btn">Save Entry</button>
+                <p class="success-message" id="journal-success" style="display: none;"></p>
+            </div>
+        </main>
+        <a href="index.html" class="nav-btn" style="margin-top: 2rem;">Back to Home</a>
+    </div>
+    <script src="js/journal.js"></script>
+</body>
+</html>
